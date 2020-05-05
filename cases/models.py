@@ -1,8 +1,12 @@
 from django.db import models
 
-# Create your models here.
 
+class Cases(models.Model):
+   date = models.DateField(auto_now_add=False)
+   country = models.CharField (max_length=50)
+   Region = models.CharField(max_length=50)
 
+    
 class Visuals(models.Model):
     country = models.CharField(max_length=20)
     province = models.CharField(max_length=20)
