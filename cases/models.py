@@ -13,6 +13,5 @@ class Visuals(models.Model):
     timeline = models.TextField(max_length=None)
 
     def __str__(self):
-        return self.country
-        return self.province
-        return self.timeline
+        return f'{self.country} {self.province} {self.timeline}'
+
