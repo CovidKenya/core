@@ -1,7 +1,18 @@
 from django.contrib import admin
-from .models import Visuals, Cases
+from .models import Visual, KenyanCase
 
-admin.site.register(Visuals)
-admin.site.register(Cases)
 
-# Register your models here.
+@admin.register(Visual)
+class VisualAdmin(admin.ModelAdmin):
+    readonly_fields = [
+        "time_created",
+        "last_updated",
+    ]
+
+
+@admin.register(KenyanCase)
+class KenyanCaseAdmin(admin.ModelAdmin):
+    readonly_fields = [
+        "time_created",
+        "last_updated",
+    ]
