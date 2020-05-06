@@ -32,9 +32,9 @@ def remove_provinces(data, date_range):
             rc = 0
             # sum data up per province
             for prov in countries:
-                cs += prov["timeline"]["cases"][date]
-                dt += prov["timeline"]["deaths"][date]
-                rc += prov["timeline"]["recovered"][date]
+                cs += prov['timeline']['cases'][date]
+                dt += prov['timeline']['deaths'][date]
+                rc += prov['timeline']['recovered'][date]
             cases[date] = cs
             recovered[date] = rc
             deaths[date] = dt

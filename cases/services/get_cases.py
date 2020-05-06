@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import requests
 from requests.exceptions import HTTPError
 
+from cases.models import Visual
 from cases.services.clean_data import remove_provinces
 
 
@@ -32,5 +33,20 @@ def get_historical_data():
         # remove provinces
         filtered_data = remove_provinces(
             data=json.loads(response.text), date_range=day_list)
+
+        #
+        # save the data
+        obj_list = []
+        for i in filtered_data:
+            obj_list.append(
+                Visual(
+                    country=i['country'],
+                    case=i['timeline']['cases'],
+                    recovery=i['timeline']['recovered'],
+                    death=i['timeline']['deaths']
+                ))
+
+        # save all the objects in one query
+        Visual.objects.bulk_create(obj_list)
 
         return filtered_data
