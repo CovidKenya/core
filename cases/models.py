@@ -2,11 +2,7 @@ from django.db import models
 
 
 class Visual(models.Model):
-    """
-    specified the country as the pk to allow for easy update/create
-    https://docs.djangoproject.com/en/3.0/ref/models/instances/#the-pk-property
-    """
-    country = models.CharField(primary_key=True, max_length=255)
+    country = models.CharField(max_length=255)
     case = models.TextField()
     death = models.TextField()
     recovery = models.TextField()
