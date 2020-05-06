@@ -2,6 +2,9 @@ venv
 env
 kemo
 
+.idea
+.vscode
+
 ### Django ###
 *.log
 *.pot
