@@ -2,13 +2,10 @@ import json
 
 from rest_framework import serializers
 
-from .models import Visual
+from .models import Visual, KenyanCase
 
 
 class VisualSerializer(serializers.ModelSerializer):
-    def get_fields(self):
-        return super().get_fields()
-
     class Meta:
         model = Visual
         fields = '__all__'
@@ -30,3 +27,9 @@ class VisualSerializer(serializers.ModelSerializer):
         }
         data.update(extra_data)
         return data
+
+
+class KenyanCaseSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = KenyanCase
+        fields = '__all__'
