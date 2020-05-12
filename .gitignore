@@ -2,6 +2,10 @@ venv
 env
 kemo
 
+# CELERY
+celerybeat.pid
+celerybeat-schedule.db
+
 .idea
 .vscode
 
