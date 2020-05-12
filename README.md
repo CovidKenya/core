@@ -2,7 +2,7 @@
 
 Core is the backend that powers the Covid Kenya website.
 
-### Tech
+## Tech
 Core is written in Python3 and Django 3.0.3.
 
 ## Setup
