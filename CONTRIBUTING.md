@@ -1,10 +1,10 @@
 # Contributing to CovidKenya/core
 
-Thank you for indicating interest in contributing to CovidKenya/core. Following these guidelines help to communicate that you respect the time of the developers managing and working on this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes, and also helping you finalise your pull requests
+Thank you for showing interest in contributing to CovidKenya/core. Following these guidelines help to communicate that you respect the time of the developers managing and working on this open source project. In return, they should reciprocate that respect in addressing your issue, assessing changes and also helping you finalise your pull requests.
 
 ### What do I do? How do I get started?
 
-Follow the [README.md](/README.md) guide. If you've noticed a bug, want to add a feature or have a question, [search the issue tracker](https://github.com/CovidKenya/core/issues) to see if someone else already created a ticket. If that has not been done yet, go ahead and [make one](https://github.com/CovidKenya/core/issues/new).
+Follow the [README.md](/README.md) guide. If you've noticed a bug, want to add a feature or have a question, [search the issue tracker](https://github.com/CovidKenya/core/issues) to see if someone else already created a ticket. If that has not yet been done, go ahead and [make one](https://github.com/CovidKenya/core/issues/new).
 
 ### Clone & create a branch
 
@@ -32,8 +32,8 @@ Related to the above, if a maintainer asks you to "rebase" your PR, they're sayi
 
 A PR can only be merged into staging by a maintainer if:
 
-* It has no requested changes
-* It is up-to-date with current staging branch
-* It is a valid fix/feature.
+- It has no requested changes
+- It is up-to-date with current staging branch
+- It is a valid fix/feature.
 
 Any maintainer is allowed to merge a PR if all of these conditions are met.
