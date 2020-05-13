@@ -4,7 +4,7 @@ SECRET_KEY = '+j8(vwa1$-f8*=v!z0dj$47@4-pk*0c8+wj)c2*)a2)7_x%*%i'
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
