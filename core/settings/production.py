@@ -5,6 +5,9 @@ DEBUG = get_env_variable("DEBUG")
 
 ALLOWED_HOSTS = get_env_variable("ALLOWED_HOSTS")
 
+# CORS https://pypi.org/project/django-cors-headers/
+CORS_ORIGIN_WHITELIST = get_env_variable("CORS_ORIGIN_WHITELIST")
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
