@@ -15,7 +15,7 @@ INSTALLED_APPS = [
     # third party apps
     'corsheaders',
     'rest_framework',
-    'knox',
+    'knox',  # http://james1345.github.io/django-rest-knox/
     # local apps
     'cases.apps.CasesConfig',
     'authentication'
