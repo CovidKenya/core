@@ -15,6 +15,7 @@ INSTALLED_APPS = [
     # third party apps
     'corsheaders',
     'rest_framework',
+    'knox',
     # local apps
     'cases.apps.CasesConfig',
     'authentication'
