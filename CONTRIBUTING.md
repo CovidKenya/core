@@ -29,7 +29,7 @@ The goal is that each commit has a **single focus**. Each commit should record a
 
 Conversely, a commit shouldn't include unrelated changes - changes to the sidebar and rewording content in the footer. These two aren't related to each other and shouldn't be included in the same commit. Work on one change first, commit that, and then change the second one. That way, if it turns out that one change had a bug and you have to undo it, you don't have to undo the other change too.
 
-If you have to use "and" i your commit message, your commit is probably doing too many changes - break the changes into separate commits
+If you have to use "and" in your commit message, your commit is probably doing too many changes - break the changes into separate commits
 
 #### Commits Message
 Explain what the commit does (not how or why).
