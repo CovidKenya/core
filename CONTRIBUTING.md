@@ -31,7 +31,7 @@ Conversely, a commit shouldn't include unrelated changes - changes to the sideba
 
 If you have to use "and" in your commit message, your commit is probably doing too many changes - break the changes into separate commits
 
-#### Commits Message
+#### Commit Messages
 Explain what the commit does (not how or why).
 
 ### Keeping your Pull Request updated
