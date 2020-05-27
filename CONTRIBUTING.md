@@ -22,7 +22,17 @@ At this point, you're ready to make your changes. Feel free to ask for help; eve
 
 The [requirements](/requirements.txt) file contain the packages and dependencies to be installed and set up.
 
-Please ensure that the issue you've fixed is related to the branch you're currently working from. If you want to fix something else unrelated to whatever you've worked on, do another checkout from the staging branch and give the new branch an appropriate name. This makes it easy for the maintainers to track your fixes.
+Please ensure that the issue you've fixed is related to the branch you're currently working from. If you want to fix something else unrelated to whatever you've worked on, do another checkout from the staging branch and give the new branch an appropriate name.This makes it easy for the maintainers to track your fixes.
+
+#### Commits
+The goal is that each commit has a **single focus**. Each commit should record a single-unit change. Now this can be a bit subjective (which is totally fine), but each commit should make a change to just one aspect of the project.
+
+Conversely, a commit shouldn't include unrelated changes - changes to the sidebar and rewording content in the footer. These two aren't related to each other and shouldn't be included in the same commit. Work on one change first, commit that, and then change the second one. That way, if it turns out that one change had a bug and you have to undo it, you don't have to undo the other change too.
+
+If you have to use "and" in your commit message, your commit is probably doing too many changes - break the changes into separate commits
+
+#### Commit Messages
+Explain what the commit does (not how or why).
 
 ### Keeping your Pull Request updated
 
