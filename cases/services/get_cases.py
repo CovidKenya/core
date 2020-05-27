@@ -2,23 +2,35 @@ import json
 from datetime import datetime, timedelta
 
 import requests
-from django.utils import timezone
 from requests.exceptions import HTTPError
 
-from cases.models import Visual
+from cases.models import VisualCases
 from cases.services.clean_data import remove_provinces
+from cases.services.save_visuals_data import save_historical_data
+
+
+def get_start_date():
+    try:
+        return VisualCases.objects.latest("date").date
+    except VisualCases.DoesNotExist:
+        return datetime(2020, 1, 22).date()  # The earliest date available on the API
 
 
 def get_historical_data():
-    start_date = datetime(2020, 1, 22)  # The earliest date available on the API
-    today = datetime.today()
-    days = (today - start_date).days
+    start_date = get_start_date()
+    earliest_data_available = datetime.utcnow().date() - timedelta(days=1)
+
+    days = (earliest_data_available - start_date).days
+
+    if days < 1:
+        return
 
     try:
         response = requests.get(
             f'https://disease.sh/v2/historical?lastdays={days}')
         day_list = []
-        while start_date + timedelta(days=1) < today:
+        start_date += timedelta(days=1)
+        while start_date < earliest_data_available:
             day_list.append(start_date.strftime("%-m/%-d/%y"))
             start_date += timedelta(days=1)
 
@@ -26,29 +38,14 @@ def get_historical_data():
         filtered_data = remove_provinces(
             data=json.loads(response.text), date_range=day_list)
 
-        #
         # save the data
-        obj_list = []
-        for i in filtered_data:
-            obj_list.append(
-                Visual(
-                    country=i['country'],
-                    case=i['timeline']['cases'],
-                    recovery=i['timeline']['recovered'],
-                    death=i['timeline']['deaths']
-                ))
+        save_historical_data(filtered_data)
 
-        # save all the objects in one query
-        Visual.objects.bulk_create(obj_list)
-
-    except HTTPError as error:
+    except HTTPError:
         # handle HTTP errors
-        print(f'HTTP error occurred: {error}')
+        raise Exception("Network Error")
     except Exception as error:
         # handle any other error
-        print(f'Error: {error}')
+        raise error
     else:
-        two_hrs_before = (timezone.now() - timedelta(seconds=2))
-        if Visual.objects.filter(time_created__lt=two_hrs_before).exists():
-            Visual.objects.filter(time_created__lt=two_hrs_before).delete()
-        return filtered_data
+        return True
